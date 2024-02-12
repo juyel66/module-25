@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>  JS-DOM Click Event Summary</title>
+</head>
+<body>
+<h1 style="color: red;  "> Click Event Summary</h1>
+    <p id="input-text-display"> Default input text</p>
+    <input id="input-field" type="text"> 
+    
+
+    <button id="btn-update"> update</button>
+    <br> <br>
+    <h3 id="changeText">Changeable Text</h3>
+    <button onclick="HandleEvent()"> Handle Event By onclick function</button> <br>
+    <button id="addEventListener">Handle event by AddEventListener</button>
+
+
+
+
+    <script>
+        function HandleEvent(){
+           const HandleEvent=  document.getElementById('changeText');
+           HandleEvent.innerText= 'Yeah I am Working now';
+        }
+
+
+        // Option 2 
+
+
+        document.getElementById('addEventListener').addEventListener('click', function(){
+            const textUpdate = document.getElementById('changeText')
+            textUpdate.innerText= 'I am update now';
+        })
+
+        // option 2: recap
+
+        document.getElementById('btn-update').addEventListener('click', function(){
+            const inputField = document.getElementById('input-field');
+            const inputText= inputField.value;
+            
+            const p = document.getElementById('input-text-display');
+            p.innerText= inputText;
+            inputField.value= ' ';
+
+        })
+    </script>
+</body>
+</html>
